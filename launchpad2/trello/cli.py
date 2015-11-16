@@ -1,9 +1,9 @@
 import argparse
 import logging
 
-from launchpad2trello import cache
-from launchpad2trello import lp
-from launchpad2trello import trello
+from launchpad2 import cache
+from launchpad2 import lp
+from launchpad2.trello import trello
 
 
 LOG = logging.getLogger(__name__)

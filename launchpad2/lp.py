@@ -2,7 +2,7 @@ import logging
 
 import requests
 
-from launchpad2trello import cache
+from launchpad2 import cache
 
 
 LOG = logging.getLogger(__name__)

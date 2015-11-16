@@ -8,14 +8,15 @@ setuptools.setup(
     author='Dolph Mathews',
     author_email='dolph.mathews@gmail.com',
     url='http://github.com/dolph/launchpad2trello',
-    packages=['launchpad2trello'],
+    packages=['launchpad2'],
     entry_points={
-        'console_scripts': ['launchpad2trello = launchpad2trello.cli:main']},
+        'console_scripts': ['launchpad2trello = launchpad2.trello.cli:main']},
     install_requires=[
         'argparse',
         'requests',
         'requests_oauthlib',
-        'dogpile.cache'],
+        'dogpile.cache',
+    ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
