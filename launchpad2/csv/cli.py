@@ -26,10 +26,10 @@ DATE_KEYS = [
 ]
 
 
-def normalize_datetime_values(bug):
+def normalize_datetime_values(bug, normalized_format):
     for key in DATE_KEYS:
         try:
-            bug[key] = lp.parse_date(bug[key]).strftime('%m/%d/%Y')
+            bug[key] = lp.parse_date(bug[key]).strftime(normalized_format)
         except (ValueError, TypeError):
             pass
 
@@ -58,6 +58,10 @@ def main():
         help='Mapping of header name to launchpad attribute, e.g., '
              '--header-map Approved:Triaged --header-map "Doing:In Progress"')
     parser.add_argument(
+        '--date-format',
+        default='%m/%d/%Y',
+        help='Format to normalize date-time values to')
+    parser.add_argument(
         '--output-file',
         help='Location to store the output of the csv conversion')
 
@@ -77,7 +81,7 @@ def main():
     with csvwriter.CSVFormatterWriter(args.output_file, headers,
                                       attribute_names) as csvconverter:
         for bug in lp.list_bugs(lp_project):
-            normalize_datetime_values(bug)
+            normalize_datetime_values(bug, args.date_format)
             csvconverter.record_bug(bug)
 
 
