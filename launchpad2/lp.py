@@ -1,3 +1,4 @@
+import datetime
 import logging
 
 import requests
@@ -107,3 +108,9 @@ def list_specifications(project):
                 'name': spec['milestone_link'].rsplit('/')[-1]}
 
         yield spec
+
+
+def parse_date(datetime_string):
+    datetime_format = '%Y-%m-%dT%H:%M:%S.%f+00:00'
+    # example = '2015-11-19T17:51:52.958177+00:00'
+    return datetime.datetime.strptime(datetime_string, datetime_format)
