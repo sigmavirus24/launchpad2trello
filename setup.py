@@ -8,7 +8,11 @@ setuptools.setup(
     author='Dolph Mathews',
     author_email='dolph.mathews@gmail.com',
     url='http://github.com/dolph/launchpad2trello',
-    packages=['launchpad2'],
+    packages=[
+        'launchpad2',
+        'launchpad2.csv',
+        'launchpad2.trello',
+    ],
     entry_points={
         'console_scripts': [
             'launchpad2trello = launchpad2.trello.cli:main',
