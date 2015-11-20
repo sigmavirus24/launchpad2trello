@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name='launchpad2trello',
-    version='1.0.0',
+    version='2.0.0',
     description='Sync Launchpad activity to Trello',
     author='Dolph Mathews',
     author_email='dolph.mathews@gmail.com',
